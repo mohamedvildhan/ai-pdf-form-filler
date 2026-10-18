@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/* Modern dark tool UI */
+
+@font-face {
+  font-family: "Bolhu";
+  src: url("/fonts/bolhu.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Faruma";
+  src: url("/fonts/faruma.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Waheed";
+  src: url("/fonts/waheed.otf") format("opentype");
+  font-display: swap;
+}
+
+:root {
+  --background: #0b0c10;
+  --foreground: #f2f3f5;
+  --surface: #12141a;
+  --panel: #1a1d26;
+  --line: #2a2f3a;
+  --mute: #9aa3b2;
+  --accent: #5b6cff;
+  --accent-soft: rgba(91, 108, 255, 0.2);
+  --accent-strong: #7b89ff;
+  --ok: #22c55e;
+  --warn: #f59e0b;
+  --danger: #f87171;
+  --focus: #7b89ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: #0b0c10;
+  --color-surface: #12141a;
+  --color-panel: #1a1d26;
+  --color-line: #2a2f3a;
+  --color-paper: #f2f3f5;
+  --color-mute: #9aa3b2;
+  --color-accent: #5b6cff;
+  --color-accent-soft: #4453db;
+  --color-accent-strong: #7b89ff;
+  --color-ok: #4ade80;
+  --color-warn: #fbbf24;
+  --color-danger: #f87171;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), "Faruma", ui-sans-serif, sans-serif;
+  min-height: 100dvh;
+}
+
+.app-shell {
+  min-height: 100dvh;
+  background:
+    radial-gradient(900px 420px at 15% -10%, rgba(91, 108, 255, 0.16), transparent 55%),
+    radial-gradient(700px 360px at 90% 0%, rgba(34, 197, 94, 0.06), transparent 50%),
+    #0b0c10;
+}
+
+.field-input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--line);
+  background: #0e1016;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.9rem;
+  color: var(--foreground);
+  outline: none;
+  transition: border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+
+.field-input:hover {
+  border-color: #3a4150;
+}
+
+.field-input:focus {
+  border-color: var(--accent-strong);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+  background: #10131a;
+}
+
+.panel {
+  border-radius: 1rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(26, 29, 38, 0.95), rgba(18, 20, 26, 0.95));
+  box-shadow: 0 10px 30px -20px rgba(0, 0, 0, 0.7);
+}
+
+.btn-primary {
+  border-radius: 0.75rem;
+  background: linear-gradient(180deg, #6d7cff, #5b6cff);
+  padding: 0.7rem 1.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 20px -10px rgba(91, 108, 255, 0.8);
+  transition: transform 120ms ease, filter 120ms ease, opacity 120ms ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  border-radius: 0.75rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.55rem 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #d7dce6;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #3a4150;
+}
+
+.btn-ok {
+  border-radius: 0.75rem;
+  background: linear-gradient(180deg, #2dd46a, #16a34a);
+  padding: 0.55rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 18px -12px rgba(34, 197, 94, 0.75);
+}
+
+.btn-ok:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+.btn-ok:disabled {
+  opacity: 0.4;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@keyframes fill-progress-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.fill-progress-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  width: 40%;
+  animation: fill-progress-shimmer 1.35s ease-in-out infinite;
+}
+
+@keyframes fill-progress-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(91, 108, 255, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 14px 0 rgba(91, 108, 255, 0.3);
+  }
+}
+
+.fill-progress-active {
+  animation: fill-progress-glow 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill-progress-shimmer,
+  .fill-progress-active {
+    animation: none;
+  }
+
+  .btn-primary:active:not(:disabled) {
+    transform: none;
+  }
+}

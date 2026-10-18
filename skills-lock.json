@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "frontend-design": {
+      "source": "SuperCorks/agent-skills",
+      "sourceType": "github",
+      "skillPath": "frontend-design/SKILL.md",
+      "computedHash": "4cacf99accdef7bec9b06880172854e4dbdee9fb584426c2664ed325c41860b3"
+    },
+    "gsd-orchestrator": {
+      "source": "gsd-build/gsd-2",
+      "sourceType": "github",
+      "skillPath": "gsd-orchestrator/SKILL.md",
+      "computedHash": "62cc644751993000502ec80dbd6a26532f3266bbc3e6f6d905d44abce70364a3"
+    }
+  }
+}
